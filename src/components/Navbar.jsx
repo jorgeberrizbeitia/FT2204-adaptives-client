@@ -25,6 +25,10 @@ function Navbar(props) {
         <NavLink to="/profile/edit">
           Edit Profile
         </NavLink>
+
+        <NavLink to="/product-list">
+          Products Page
+        </NavLink>
   
         <button onClick={logoutUser}>Logout</button>
   
