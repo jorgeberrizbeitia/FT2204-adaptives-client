@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { getProfileService } from "../services/profile.services"
+import { getProfileService } from "../../services/profile.services"
 
 
-function Private() {
+function Profile() {
 
   const [ user, setUser ] = useState(null)
 
@@ -30,8 +30,10 @@ function Private() {
   return (
     <div>
       <h1>Welcome: {user.name}</h1>
+      <h3>Email: {user.email}</h3>
+      <img src={user.profilePic} alt="pic" />
     </div>
   )
 }
 
-export default Private
+export default Profile

@@ -10,9 +10,10 @@ import NotFound from './pages/NotFound';
 import Error from './pages/Error';
 import Signup from './pages/auth/Signup';
 import Login from './pages/auth/Login';
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile/Profile";
 
 import { verifyService } from './services/auth.services';
+import ProfileEdit from "./pages/profile/ProfileEdit";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={ <ProfileEdit /> } />
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
