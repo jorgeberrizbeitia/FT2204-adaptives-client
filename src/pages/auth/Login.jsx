@@ -2,6 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {loginService} from "../../services/auth.services"
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+
 function Login(props) {
 
   const [email, setEmail] = useState("");
@@ -31,32 +35,42 @@ function Login(props) {
   }
 
   return (
-    <div>
+    <div >
     
       <h1>Log In</h1>    
+
+      <div style={{display: "flex", alignItems:"center", flexDirection: "column"}}>
+      <Form onSubmit={handleLogin} style={{width: "50%"}}>
+        <Form.Group>
+          <Form.Label>Email:</Form.Label>
+          <Form.Control 
+            type="email" 
+            name="email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password:</Form.Label>
+          <Form.Control 
+            type="password" 
+            name="password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">Log In</Button>
+
+      </Form>
+
+      { errorMessage && <Alert className="error-message" variant="danger">{errorMessage}</Alert> }
+
+      </div>
     
-      <form onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input 
-          type="email" 
-          name="email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-        />
 
-        <label>Password:</label>
-        <input 
-          type="password" 
-          name="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
 
-        <button type="submit">Log In</button>
-
-      </form>
-
-      { errorMessage && <p>{errorMessage}</p> }
     
     </div>
   )

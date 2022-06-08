@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import PaymentIntent from "./PaymentIntent"
 
+import Button from 'react-bootstrap/Button';
+
 function ProductList() {
   const [products, setProducts] = useState(null);
   const [productToBuy, setProductToBuy] = useState(null)
@@ -42,7 +44,7 @@ function ProductList() {
             <div key={eachProduct._id}>
               <p>Name: {eachProduct.name}</p>
               <p>Price: {eachProduct.price}</p>
-              <button onClick={() => handleBuy(eachProduct)}>Comprar</button>
+              <Button variant="outline-success" style={{color: "purple"}} onClick={() => handleBuy(eachProduct)}>Comprar</Button>
               <hr />
             </div>
           );

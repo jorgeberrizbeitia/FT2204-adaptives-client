@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar"
+import MyNavbar from "./components/MyNavbar"
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <MyNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,8 +43,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
 
-        <Route path="/pro" element={<Profile />} />
-        <Route path="/profile/fileedit" element={ <ProfileEdit /> } />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={ <ProfileEdit /> } />
 
         <Route path="/product-list" element={<ProductList/>} />
 
